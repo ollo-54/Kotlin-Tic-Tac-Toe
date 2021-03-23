@@ -59,17 +59,17 @@ fun main() {
 fun fullLine(s: String, y: Char, g: Array<Int>, v: Array<Int>): Array<String> {
     var zn = emptyArray<String>()
 
-    if (s[g[0] + v[0]] == y && s[g[0] + v[1]] == y && s[g[0] + v[2]] == y || s[g[1] + v[0]] == y && s[g[1] + v[1]] == y && s[g[1] + v[2]] == y || s[g[2] + v[0]] == y && s[g[2] + v[1]] == y && s[g[2] + v[2]] == y) {
-        zn += "$y wins"
-    } else zn += " "
+    zn += if (s[g[0] + v[0]] == y && s[g[0] + v[1]] == y && s[g[0] + v[2]] == y || s[g[1] + v[0]] == y && s[g[1] + v[1]] == y && s[g[1] + v[2]] == y || s[g[2] + v[0]] == y && s[g[2] + v[1]] == y && s[g[2] + v[2]] == y) {
+        "$y wins"
+    } else " "
 
-    if (s[v[0] + g[0]] == y && s[v[0] + g[1]] == y && s[v[0] + g[2]] == y || s[v[1] + g[0]] == y && s[v[1] + g[1]] == y && s[v[1] + g[2]] == y || s[v[2] + g[0]] == y && s[v[2] + g[1]] == y && s[v[2] + g[2]] == y) {
-        zn += "$y wins"
-    } else zn += " "
+    zn += if (s[v[0] + g[0]] == y && s[v[0] + g[1]] == y && s[v[0] + g[2]] == y || s[v[1] + g[0]] == y && s[v[1] + g[1]] == y && s[v[1] + g[2]] == y || s[v[2] + g[0]] == y && s[v[2] + g[1]] == y && s[v[2] + g[2]] == y) {
+        "$y wins"
+    } else " "
 
-    if (s[0] == y && s[4] == y && s[8] == y || s[6] == y && s[4] == y && s[2] == y) {
-        zn += "$y wins"
-    } else zn += " "
+    zn += if (s[0] == y && s[4] == y && s[8] == y || s[6] == y && s[4] == y && s[2] == y) {
+        "$y wins"
+    } else " "
 
     return zn
 }
